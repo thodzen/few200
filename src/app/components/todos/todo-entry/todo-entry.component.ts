@@ -12,4 +12,12 @@ export class TodoEntryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  add(descriptionE1: HTMLInputElement): void {
+    // create a new TodoListItem
+    // Do something with it
+    console.log(descriptionE1.value);
+    // clear out the text in the textbox
+    descriptionE1.value = '';
+    descriptionE1.focus();
+  }
 }
