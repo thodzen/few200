@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodoListItem } from '../../../models';
 
 @Component({
@@ -8,10 +8,10 @@ import { TodoListItem } from '../../../models';
 })
 export class TodoListComponent implements OnInit {
 
-  items: TodoListItem[] = [
-    { description: 'Mow lawn', completed: false },
-    { description: 'Clean Windows', completed: true }
-  ];
+  // @Input() lets you override within parent component
+  @Input() items: TodoListItem[] = [];
+  @Input() caption = 'Your List of Todos';
+  @Output() itemCompleted = new EventEmitter<TodoListItem>();
 
   constructor() { }
 
@@ -19,6 +19,6 @@ export class TodoListComponent implements OnInit {
   }
 
   markComplete(item: TodoListItem): void {
-    item.completed = true;
+    this.itemCompleted.emit(item);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-todo-entry',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoEntryComponent implements OnInit {
 
+  @Output() itemAdded = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
@@ -15,7 +16,7 @@ export class TodoEntryComponent implements OnInit {
   add(descriptionE1: HTMLInputElement): void {
     // create a new TodoListItem
     // Do something with it
-    console.log(descriptionE1.value);
+    this.itemAdded.emit(descriptionE1.value);
     // clear out the text in the textbox
     descriptionE1.value = '';
     descriptionE1.focus();
