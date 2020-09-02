@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { MediaState } from './reducers/list.reducer';
+import { selectMediaLoaded } from './reducers';
 
 @Component({
   selector: 'app-media',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MediaComponent implements OnInit {
 
-  constructor() { }
+  loaded$: Observable<boolean>;
+  constructor(private store: Store<MediaState>) { }
 
   ngOnInit(): void {
+    this.loaded$ = this.store.pipe(
+      select(selectMediaLoaded)
+    );
   }
 
 }
