@@ -52,7 +52,7 @@ const selectMediaListUnfiltered = createSelector(
       return -1;
     }
     return 0;
-  })] as models.MediaListItem[]
+  })].map(r => ({ ...r, isTemporary: r.id.startsWith('TEMP') })) as models.MediaListItem[]
 );
 
 export const selectDashboardModel = createSelector(

@@ -5,6 +5,8 @@
        role="group"
        aria-label="First group">
     <button type="button"
+            [disabled]="(filter$ | async) === 'All'"
+            (click)="setFilter('All')"
             class="btn btn-secondary">Show All</button>
   </div>
   <div class="btn-group mr-2"

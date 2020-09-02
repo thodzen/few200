@@ -13,6 +13,16 @@ export const addedMediaItem = createAction(
   })
 );
 
+export const addedMediaItemSucceeded = createAction(
+  '[media] added media item succeeded',
+  props<{ tempId: string, payload: ListEntity }>()
+);
+
+export const addedMediaFailure = createAction(
+  '[media] added media item failed',
+  props<{ payload: ListEntity, errorMessage: string }>()
+);
+
 export const loadMediaData = createAction(
   '[media] load media data'
 );
@@ -25,4 +35,19 @@ export const loadMediaDataSucceeded = createAction(
 export const loadMediaDataFailed = createAction(
   '[media] loading media data failed',
   props<{ message: string }>()
+);
+
+export const removedMediaItem = createAction(
+  '[media] media item removed',
+  props<{ payload: ListEntity }>()
+);
+
+export const removedMediaItemFailed = createAction(
+  '[media] media item removed failed',
+  props<{ payload: ListEntity, message: string }>()
+);
+
+export const makeUpperCaseTitle = createAction(
+  '[media] make upper case title',
+  props<{ payload: ListEntity }>()
 );
