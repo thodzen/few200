@@ -1,21 +1,25 @@
-<div class="row"
-     *ngIf="(loaded$ | async)">
+<div class="row">
   <div class="col-2">
     <ul class="nav nav-pills flex-column">
       <li class="nav-item">
         <a class="nav-link"
            [routerLinkActive]="['active']"
-           [routerLink]="['dashboard']">Overview</a>
+           [routerLink]="['dashboard']">Dashboard</a>
       </li>
       <li class="nav-item">
         <a class="nav-link"
            [routerLinkActive]="['active']"
-           [routerLink]="['list']">List</a>
+           [routerLink]="['upcomingHolidays']">Upcoming Holidays</a>
       </li>
       <li class="nav-item">
         <a class="nav-link"
            [routerLinkActive]="['active']"
-           [routerLink]="['create']">Create</a>
+           [routerLink]="['newRecipient']">Enter a New Recipient</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           [routerLinkActive]="['active']"
+           [routerLink]="['pastHolidays']">Past Holidays</a>
       </li>
     </ul>
   </div>
