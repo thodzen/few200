@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import * as actions from '../../actions/gift.actions';
 import { Store } from '@ngrx/store';
-import { GiftsState } from '../../reducers/gifts.reducers';
+import { RecipientState } from '../../reducers/gifts.reducers';
 import { GiftsEntity } from '../../reducers/gifts.reducers';
 
 @Component({
@@ -13,7 +13,7 @@ import { GiftsEntity } from '../../reducers/gifts.reducers';
 export class NewRecipientComponent implements OnInit {
 
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder, private store: Store<GiftsState>) { }
+  constructor(private formBuilder: FormBuilder, private store: Store<RecipientState>) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

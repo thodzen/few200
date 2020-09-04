@@ -1,6 +1,10 @@
 export interface GiftItem {
-  // id: string;
+  id: string;
   name: string;
-  holiday: string;
-  date: Date;
+  upcomingHoliday: string;
+  dateOfHoliday: Date;
+  needsGift: boolean;
+  needsCard: boolean;
+  hasGift: boolean;
+  hasCard: boolean;
 }

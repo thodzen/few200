@@ -13,13 +13,13 @@ export interface GiftsEntity {
   hasCard: boolean;
 }
 
-export interface GiftsState extends EntityState<GiftsEntity> {
+export interface RecipientState extends EntityState<GiftsEntity> {
 
 }
 
 export const adapter = createEntityAdapter<GiftsEntity>();
 
-const initialState: GiftsState = {
+const initialState: RecipientState = {
   ids: ['1', '2', '3'],
   entities: {
     1: { id: '1', name: 'Tyler Hodzen', upcomingHoliday: 'Halloween', dateOfHoliday: new Date(2020, 10, 31), needsCard: true, needsGift: true, hasCard: false, hasGift: false },
@@ -34,3 +34,7 @@ const reducerFunction = createReducer(
   on(actions.toggleHasGift, (s, a) => adapter.updateOne({ id: a.payload.id, changes: { hasGift: !a.payload.hasGift } }, s)),
   on(actions.addedGiftsItem, (s, a) => adapter.addOne(a.payload, s))
 );
+
+export function reducer(state: RecipientState = initialState, action: Action): RecipientState {
+  return reducerFunction(state, action);
+}

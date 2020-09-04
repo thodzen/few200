@@ -1,13 +1,27 @@
 <div class="card"
-     *ngFor="let item of items">
+     *ngFor="let recipient of recipients">
   <div class="card-body">
-    <h5 class="card-title">{{item.name}} Celebrates {{item.holiday}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">on {{ item.date}}</h6>
-    <div>
-      <div _ngcontent-ifo-c20=""
-           class="form-check form-check-inline"><input _ngcontent-ifo-c20=""
-               type="checkbox"
-               class="form-check-input"><label class="form-check-label">Card</label></div>
+    <h5 class="card-title">{{ recipient.name}} Celebrates {{recipient.holiday}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">on {{ recipient.dateOfHoliday | date }}</h6>
+    <div class="form-check form-check-inline"
+         *ngIf="recipient.needsGift">
+      <input class="form-check-input"
+             type="checkbox"
+             id="inlineCheckbox1"
+             (change)="toggleGift(recipient)"
+             [checked]="recipient.hasGift">
+      <label class="form-check-label"
+             for="inlineCheckbox1">Gift</label>
+    </div>
+    <div class="form-check form-check-inline"
+         *ngIf="recipient.needsCard">
+      <input class="form-check-input"
+             type="checkbox"
+             id="inlineCheckbox1"
+             (change)="toggleCard(recipient)"
+             [checked]="recipient.hasCard">
+      <label class="form-check-label"
+             for="inlineCheckbox1">Card</label>
     </div>
   </div>
 </div>
